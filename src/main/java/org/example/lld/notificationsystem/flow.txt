@@ -1,0 +1,33 @@
+
+
+NotificationRequest
+  - userId
+  - channel
+  - priority
+  - params
+
+
+NotificationService  -
+  - sendNotification(NotificationRequest request)
+  - returns id of notification
+
+
+Notification
+   - id [ UUID ]
+   - userId
+   - channel
+   - priority
+   - params
+   - status
+   - createdAt
+
+
+interface NotificationSender
+   - send(Notification)
+   - getChannel
+
+
+SmsSender implement NotificationSender{
+   - send(Notification)  -> vendorApi.sendNotifcation()
+   - getChannel  -> returns "SMS"
+}
